@@ -17,6 +17,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
+                    @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                    @endif
                     <div class="flex justify-between mb-4">
                         <h1 class="text-lg font-bold text-gray-800 dark:text-gray-200">Created Pages List</h1>
                         <a href="{{ route('pages.create') }}" class="text-green-600 hover:text-green-900 ml-4">

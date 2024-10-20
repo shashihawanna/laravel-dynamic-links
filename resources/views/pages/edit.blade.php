@@ -28,6 +28,11 @@
 
                     <div class="flex items-center gap-4">
                         <x-primary-button id='update-btn'>{{ __('Update Page') }}</x-primary-button>
+                        <a href="{{ route('pages.show', $page->slug) }}" target="_blank" class="text-indigo-600 hover:text-indigo-900">
+                            <x-secondary-button id='show-btn'>
+                                View Page
+                            </x-secondary-button>
+                        </a>
                         <a href="{{ route('dashboard') }}" class="btn btn-secondary text-green-600 hover:text-green-900 ml-4">
                             <x-secondary-button id='cancel-btn'>
                                 Cancel
@@ -73,13 +78,21 @@
                 },
                 success: function(response) {
                     alert('Page updated successfully! Access it at /pages/' + response.page.slug);
+                    setTimeout(function() {
+                        window.location.href = '/dashboard';
+                    }, 1000); 
                 },
                 error: function(error) {
                     alert('Error updating page.');
                 }
             });
         });
-        editor.setComponents({!! json_encode($page->content) !!}); 
+        editor.on('load', () => {
+            editor.DomComponents.clear();
+            editor.CssComposer.clear();
+            editor.setComponents({!! json_encode($page->content) !!});
+        });
+        
     </script>
     @endsection
 </x-app-layout>

@@ -56,6 +56,11 @@
     <script src="{{ asset('js/builder.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script type="text/javascript">
+        editor.on('load', () => {
+            $('#title').val('');
+            editor.DomComponents.clear();
+            editor.CssComposer.clear();
+        });
         $('#save-btn').click(function(e) {
             e.preventDefault();
             const title = $('#title').val();
@@ -69,10 +74,13 @@
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response) {
-                    title.val('');
+                    $('#title').val('');
                     editor.DomComponents.clear();
                     editor.CssComposer.clear();
                     alert('Page saved successfully! Access it at /pages/' + response.page.slug);
+                    setTimeout(function() {
+                        window.location.href = '/dashboard';
+                    }, 1000);   
                 },
                 error: function(error) {
                     alert('Error saving page.');
