@@ -27,6 +27,12 @@ WebPageBuilder is a project designed to provide a powerful and intuitive web pag
 ## Getting Started:
  1. Installation:
     - Clone repo and configure your environment.
+      ```sh
+       git clone https://github.com/shashihawanna/webPageBuilder.git
+      ```
+      ```sh
+      cd webPageBuilder
+      ```
     - Run command composer install in the terminal  
       ```sh
        composer install
