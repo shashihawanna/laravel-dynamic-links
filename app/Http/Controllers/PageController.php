@@ -27,6 +27,7 @@ class PageController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
+            'css' => 'required',
         ]);
 
         $slug = Str::slug($request->title);
@@ -35,6 +36,7 @@ class PageController extends Controller
             'title' => $request->title,
             'slug' => $slug,
             'content' => $request->content,
+            'css' => $request->css,
             'user_id' => auth()->id(),
         ]);
 
@@ -70,6 +72,7 @@ class PageController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
+            'css' => 'required',
         ]);
 
         $slug = Str::slug($request->title);
@@ -78,6 +81,7 @@ class PageController extends Controller
             'title' => $request->title,
             'slug' => $slug,
             'content' => $request->content,
+            'css' => $request->css,
         ]);
 
         return response()->json(['message' => 'Page updated successfully', 'page' => $page]);;

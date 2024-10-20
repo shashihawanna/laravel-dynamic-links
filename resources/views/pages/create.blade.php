@@ -55,6 +55,7 @@
     <script src="{{ asset('js/grapesjs-parser-postcss.js') }}"></script>
     <script src="{{ asset('js/builder.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/sweetalert.min.js') }}"></script>
     <script type="text/javascript">
         editor.on('load', () => {
             $('#title').val('');
@@ -65,6 +66,8 @@
             e.preventDefault();
             const title = $('#title').val();
             const content = editor.getHtml();
+            const css = editor.getCss();
+            // console.log(css); return;
             if (!title.trim()) {
                 alert('The title field is required.');
                 return;
@@ -75,6 +78,7 @@
                 data: {
                     title: title,
                     content: content,
+                    css: css,
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response) {

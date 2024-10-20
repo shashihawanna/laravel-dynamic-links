@@ -66,12 +66,20 @@ editor.Panels.addButton('options', {
   attributes: { title: 'Redo' }
 });
 
-editor.Panels.addButton('options', [{
-  id: 'clear-canvas',
-  className: 'fa fa-trash',
-  command: 'clear-canvas',
-  attributes: { title: 'Clear Canvas' }
-}]);
+editor.Panels.addButton('options', [
+  {
+      id: 'clear-canvas',
+      className: 'fa fa-trash',
+      command: 'clear-canvas',
+      attributes: { title: 'Clear Canvas' }
+  },
+  {
+      id: 'edit-html',
+      className: 'fa fa-code',
+      command: 'open-html-editor',
+      attributes: { title: 'Edit HTML' }
+  }
+]);
 
 editor.Commands.add('clear-canvas', {
   run: function(editor) {
@@ -80,4 +88,36 @@ editor.Commands.add('clear-canvas', {
       editor.CssComposer.clear(); 
     }
   }
-});      
+});     
+
+editor.Commands.add('open-html-editor', {
+  run(editor) {
+      const code = editor.getHtml();
+      const htmlEditor = document.createElement('textarea');
+      htmlEditor.value = code;
+      htmlEditor.style.width = '100%';
+      htmlEditor.style.height = '300px';
+      
+      const saveButton = document.createElement('button');
+      saveButton.innerText = 'Save';
+      saveButton.style.marginTop = '10px';
+
+      const modalContent = document.createElement('div');
+      modalContent.appendChild(htmlEditor);
+      modalContent.appendChild(saveButton);
+
+      Swal.fire({
+          title: 'Edit HTML',
+          html: modalContent,
+          showCancelButton: true,
+          preConfirm: () => {
+              editor.setComponents(htmlEditor.value);
+          }
+      });
+
+      saveButton.addEventListener('click', () => {
+          editor.setComponents(htmlEditor.value);
+          Swal.close();
+      });
+  }
+});
