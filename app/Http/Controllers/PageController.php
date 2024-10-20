@@ -44,7 +44,12 @@ class PageController extends Controller
 
     public function show($slug)
     {
-        $page = Page::where('slug', $slug)->firstOrFail();
+        $page = Page::where('slug', $slug)->first();
+    
+        if (!$page) {
+            return redirect()->route('dashboard')->with('error', 'Page not found.');
+        }
+    
         return view('pages.show', compact('page'));
     }
 
