@@ -27,10 +27,20 @@ WebPageBuilder is a project designed to provide a powerful and intuitive web pag
 ## Getting Started:
  1. Installation:
     - Clone repo and configure your environment.
+    - Run command composer install in the terminal  
+      ```sh
+       composer install
+      ```
     - Create the .env file from .env.example.
     - Add database details such as DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_PASSWORD in the .env file.
-    - Run php artisan migrate in the terminal to set up the database.
-    - Run php artisan serve to start the application.
+    - Run command php artisan migrate in the terminal to set up the database.
+      ```sh
+       php artisan migrate
+      ```
+    - Run command php artisan serve to start the application.
+      ```sh
+       php artisan serve
+      ```
     - Create a user by visiting http://127.0.0.1:8000/register.
     - Log in with the newly created user to view the dashboard and manage pages.
  2. Customization:
