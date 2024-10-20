@@ -12,7 +12,7 @@ class PageController extends Controller
 
     public function index()
     {
-        $pages = Page::all();
+        $pages = Page::orderBy('id', 'desc')->get();
         return view('dashboard', compact('pages'));
     }
 

@@ -68,6 +68,10 @@
             e.preventDefault();
             const title = $('#title').val();
             const content = editor.getHtml();
+            if (!title.trim()) {
+                alert('The title field is required.');
+                return;
+            }
             $.ajax({
                 url: "{{ route('pages.update', $page->id) }}",
                 method: 'PUT',
@@ -78,9 +82,6 @@
                 },
                 success: function(response) {
                     alert('Page updated successfully! Access it at /pages/' + response.page.slug);
-                    setTimeout(function() {
-                        window.location.href = '/dashboard';
-                    }, 1000); 
                 },
                 error: function(error) {
                     alert('Error updating page.');
@@ -91,8 +92,7 @@
             editor.DomComponents.clear();
             editor.CssComposer.clear();
             editor.setComponents({!! json_encode($page->content) !!});
-        });
-        
+        });        
     </script>
     @endsection
 </x-app-layout>

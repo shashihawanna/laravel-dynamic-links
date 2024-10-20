@@ -65,6 +65,10 @@
             e.preventDefault();
             const title = $('#title').val();
             const content = editor.getHtml();
+            if (!title.trim()) {
+                alert('The title field is required.');
+                return;
+            }
             $.ajax({
                 url: "{{ route('pages.store') }}",
                 method: 'POST',
