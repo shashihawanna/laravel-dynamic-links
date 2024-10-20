@@ -25,6 +25,6 @@ WebPageBuilder is a project designed to provide a powerful and intuitive web pag
 ### Technologies Used
 
 - **[Laravel](https://laravel.com/docs/11.x/installation)**Back-end framework for routing and data management.
-- **[GrapesJS.](https://github.com/GrapesJS/grapesjs)**Front-end drag-and-drop page builder.
-- **[MySql](https://www.mysql.com/downloads/)** Relational database management system.
+- **[GrapesJS](https://github.com/GrapesJS/grapesjs)**Front-end drag-and-drop page builder.
+- **[Mysql](https://www.mysql.com/downloads/)** Relational database management system.
 - **[IndexedDB]( Local storage support for saving progress.)**
