@@ -1,0 +1,99 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Sets the default font */
+    line-height: 1.6; /* Improves readability */
+    background-color: #f4f4f4; /* Light background for contrast */
+    color: #333; /* Dark text color */
+    padding: 20px; /* Adds space around the content */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 15px; /* Space below headings */
+}
+
+h1 {
+    font-size: 2em; /* Main heading size */
+    color: #007BFF; /* Primary color */
+}
+
+h2 {
+    font-size: 1.5em; /* Secondary heading size */
+}
+
+h3 {
+    font-size: 1.25em; /* Tertiary heading size */
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 15px; /* Space below paragraphs */
+}
+
+/* Links */
+a {
+    color: #007BFF; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Lists */
+ul, ol {
+    margin: 15px 0; /* Space around lists */
+    padding-left: 20px; /* Indentation */
+}
+
+li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+/* Table Styles */
+table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Collapses borders */
+    margin-top: 20px; /* Space above the table */
+}
+
+th, td {
+    border: 1px solid #ddd; /* Light border */
+    padding: 8px; /* Space inside cells */
+    text-align: left; /* Align text to the left */
+}
+
+th {
+    background-color: #007BFF; /* Header background color */
+    color: white; /* Header text color */
+}
+
+/* Buttons */
+.btn {
+    display: inline-block; /* Align with text */
+    padding: 10px 15px; /* Space inside buttons */
+    background-color: #007BFF; /* Button background */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* No underline */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Content Container */
+.content {
+    background-color: white; /* White background for content */
+    padding: 20px; /* Space inside content area */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
