@@ -91,8 +91,12 @@
                         window.location.href = '/dashboard';
                     }, 1000);   
                 },
-                error: function(error) {
-                    alert('Error saving page.');
+                error: function(xhr) {
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        alert(xhr.responseJSON.message); 
+                    } else {
+                        alert('Error updating page.');
+                    }
                 }
             });
         });
