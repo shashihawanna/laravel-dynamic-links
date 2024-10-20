@@ -37,10 +37,22 @@ WebPageBuilder is a project designed to provide a powerful and intuitive web pag
       ```sh
        php artisan migrate
       ```
+    - Run command php artisan key:generate in the terminal
+      ```sh
+       php artisan key:generate
+      ```
+    - Run command npm install in the terminal
+      ```sh
+       npm install
+      ```
+    - Run command npm run build in the terminal
+      ```sh
+       npm run build
+      ```
     - Run command php artisan serve to start the application.
       ```sh
        php artisan serve
-      ```
+      ```  
     - Create a user by visiting http://127.0.0.1:8000/register.
     - Log in with the newly created user to view the dashboard and manage pages.
  2. Customization:
