@@ -5,6 +5,7 @@
 
     @section('css')
     <link rel="stylesheet" href="{{ asset('css/grapes.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     @endsection
 
     <x-slot name="header">
@@ -63,11 +64,13 @@
     <script src="{{ asset('js/grapesjs-parser-postcss.js') }}"></script>
     <script src="{{ asset('js/builder.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/sweetalert.min.js') }}"></script>
     <script type="text/javascript">
         $('#update-btn').click(function(e) {
             e.preventDefault();
             const title = $('#title').val();
             const content = editor.getHtml();
+            const css = editor.getCss();
             if (!title.trim()) {
                 alert('The title field is required.');
                 return;
@@ -78,6 +81,7 @@
                 data: {
                     title: title,
                     content: content,
+                    css: css, 
                     _token: '{{ csrf_token() }}',
                 },
                 success: function(response) {
@@ -92,6 +96,7 @@
             editor.DomComponents.clear();
             editor.CssComposer.clear();
             editor.setComponents({!! json_encode($page->content) !!});
+            editor.addStyle({!! json_encode($page->css) !!});
         });        
     </script>
     @endsection

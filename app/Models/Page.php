@@ -14,6 +14,7 @@ class Page extends Model
         'title',
         'slug',
         'content',
+        'css',
         'user_id',
     ];
 
