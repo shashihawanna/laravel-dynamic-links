@@ -26,7 +26,7 @@ WebPageBuilder is a project designed to provide a powerful and intuitive web pag
 
 ## Getting Started:
  1. Installation:
-    - Install Laravel and configure your environment.
+    - Clone repo and configure your environment.
     - Create the .env file from .env.example.
     - Add database details such as DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_PASSWORD in the .env file.
     - Run php artisan migrate in the terminal to set up the database.
