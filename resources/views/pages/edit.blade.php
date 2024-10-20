@@ -21,6 +21,7 @@
                 <form action="{{ route('pages.update', $page->slug) }}" method="POST" class="mt-6 space-y-6">
                     @csrf
                     @method('PUT') <!-- Method override for update -->
+                    <input type="hidden" name="old-slug" id="old-slug" value="{{$page->slug}}">
                     <div>
                         <x-input-label for="title" :value="__('Page Title')" />
                         <x-text-input id="title" name="title" type="text" class="mt-1 block w-full" value="{{ old('title', $page->title) }}" required />
@@ -72,6 +73,7 @@
             const title = $('#title').val();
             const content = editor.getHtml();
             const css = editor.getCss();
+            const oldSlug = $('#old-slug').val();
             if (!title.trim()) {
                 alert('The title field is required.');
                 return;
@@ -81,6 +83,7 @@
                 method: 'PUT',
                 data: {
                     title: title,
+                    oldSlug: oldSlug,
                     content: content,
                     css: css, 
                     _token: '{{ csrf_token() }}',
