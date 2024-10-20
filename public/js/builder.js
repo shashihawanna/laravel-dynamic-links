@@ -1,6 +1,6 @@
 var editor = grapesjs.init({
   container: '#gjs',
-  fromElement: 1,
+  fromElement: true,
   height: '500px',
   width: 'auto',
   storageManager: { type: 'indexeddb' },
@@ -39,6 +39,33 @@ var editor = grapesjs.init({
   }
 });
 
+editor.Commands.add('undo', {
+  run(editor, sender) {
+    sender.set('active', false);
+    editor.UndoManager.undo();
+  }
+});
+
+editor.Commands.add('redo', {
+  run(editor, sender) {
+    sender.set('active', false);
+    editor.UndoManager.redo();
+  }
+});
+
+editor.Panels.addButton('options', {
+  id: 'undo',
+  className: 'fa fa-undo',
+  command: 'undo',
+  attributes: { title: 'Undo' }
+});
+editor.Panels.addButton('options', {
+  id: 'redo',
+  className: 'fa fa-repeat',
+  command: 'redo',
+  attributes: { title: 'Redo' }
+});
+
 editor.Panels.addButton('options', [{
   id: 'clear-canvas',
   className: 'fa fa-trash',
@@ -53,4 +80,4 @@ editor.Commands.add('clear-canvas', {
       editor.CssComposer.clear(); 
     }
   }
-});
+});      
