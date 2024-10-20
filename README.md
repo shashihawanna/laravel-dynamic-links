@@ -37,15 +37,15 @@ WebPageBuilder is a project designed to provide a powerful and intuitive web pag
       ```sh
        php artisan migrate
       ```
-    - Run command php artisan key:generate in the terminal
+    - Run command php artisan key:generate in the terminal to generate application key
       ```sh
        php artisan key:generate
       ```
-    - Run command npm install in the terminal
+    - Run command npm install in the terminal to install NPM dependencies
       ```sh
        npm install
       ```
-    - Run command npm run build in the terminal
+    - Run command npm run build in the terminal build assets
       ```sh
        npm run build
       ```
