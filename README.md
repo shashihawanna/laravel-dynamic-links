@@ -21,6 +21,12 @@ WebPageBuilder is a project designed to provide a powerful and intuitive web pag
     - Run php artisan serve to start the application.
     - Create a user by visiting http://127.0.0.1:8000/register.
     - Log in with the newly created user to view the dashboard and manage pages.
+ 2. Customization:
+    - Modify the provided blade templates and JavaScript files to customize the page builder to your needs.
+    - Adjust the GrapesJS editor configuration to add/remove plugins or modify its behavior.
+ 3. Usage:
+    - Use the builder to create new pages or edit existing ones visually.
+    - Save the pages to the database with the ability to retrieve and modify them later.
 
 ### Technologies Used
 
