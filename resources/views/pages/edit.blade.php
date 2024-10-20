@@ -88,8 +88,12 @@
                 success: function(response) {
                     alert('Page updated successfully! Access it at /pages/' + response.page.slug);
                 },
-                error: function(error) {
-                    alert('Error updating page.');
+                error: function(xhr) {
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        alert(xhr.responseJSON.message); 
+                    } else {
+                        alert('Error updating page.');
+                    }
                 }
             });
         });

@@ -31,7 +31,9 @@ class PageController extends Controller
         ]);
 
         $slug = Str::slug($request->title);
-
+        if (Page::where('slug', $slug)->exists()) {
+            return response()->json(['message' => 'The URL already exists. Please choose a different title.'], 400);
+        }
         $page = Page::create([
             'title' => $request->title,
             'slug' => $slug,
@@ -76,7 +78,9 @@ class PageController extends Controller
         ]);
 
         $slug = Str::slug($request->title);
-
+        if (Page::where('slug', $slug)->exists()) {
+            return response()->json(['message' => 'The URL already exists. Please choose a different title.'], 400);
+        }
         $page->update([
             'title' => $request->title,
             'slug' => $slug,
