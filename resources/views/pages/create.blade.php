@@ -53,6 +53,7 @@
     <script src="{{ asset('js/grapesjs-custom-code.js') }}"></script>
     <script src="{{ asset('js/grapesjs-indexeddb.js') }}"></script>
     <script src="{{ asset('js/grapesjs-parser-postcss.js') }}"></script>
+    <script src="{{ asset('js/grapesjs-preset-webpage.js') }}"></script>
     <script src="{{ asset('js/builder.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/sweetalert.min.js') }}"></script>

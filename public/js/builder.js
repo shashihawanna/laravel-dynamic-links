@@ -9,14 +9,15 @@ var editor = grapesjs.init({
     'grapesjs-plugin-forms', 
     'grapesjs-navbar',
     'grapesjs-component-countdown',
+    'grapesjs-tooltip',
+    'grapesjs-tabs',
     'grapesjs-tui-image-editor',
     'grapesjs-plugin-export',
     'grapesjs-blocks-flexbox',
-    'grapesjs-tabs',
-    'grapesjs-tooltip',
     'grapesjs-custom-code',
     'grapesjs-indexeddb',
-    'grapesjs-parser-postcss'
+    'grapesjs-parser-postcss',
+    'grapesjs-preset-webpage'
   ],
   pluginsOpts: {
     'gjs-blocks-basic': {},
@@ -35,60 +36,17 @@ var editor = grapesjs.init({
         dbName: 'webPageBuilderLocalDB',
         objectStoreName: 'projects',
       }
-    }
+    },
+    'grapesjs-preset-webpage': {}
   }
 });
 
-editor.Commands.add('undo', {
-  run(editor, sender) {
-    sender.set('active', false);
-    editor.UndoManager.undo();
-  }
-});
-
-editor.Commands.add('redo', {
-  run(editor, sender) {
-    sender.set('active', false);
-    editor.UndoManager.redo();
-  }
-});
-
-editor.Panels.addButton('options', {
-  id: 'undo',
-  className: 'fa fa-undo',
-  command: 'undo',
-  attributes: { title: 'Undo' }
-});
-editor.Panels.addButton('options', {
-  id: 'redo',
-  className: 'fa fa-repeat',
-  command: 'redo',
-  attributes: { title: 'Redo' }
-});
-
-editor.Panels.addButton('options', [
-  {
-      id: 'clear-canvas',
-      className: 'fa fa-trash',
-      command: 'clear-canvas',
-      attributes: { title: 'Clear Canvas' }
-  },
-  {
+editor.Panels.addButton('options', [{
       id: 'edit-html',
       className: 'fa fa-code',
       command: 'open-html-editor',
       attributes: { title: 'Edit HTML' }
-  }
-]);
-
-editor.Commands.add('clear-canvas', {
-  run: function(editor) {
-    if (confirm('Are you sure you want to clear the canvas?')) {
-      editor.DomComponents.clear(); 
-      editor.CssComposer.clear(); 
-    }
-  }
-});     
+  }]);
 
 editor.Commands.add('open-html-editor', {
   run(editor) {
