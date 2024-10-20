@@ -23,7 +23,7 @@ class PageController extends Controller
 
     public function store(Request $request)
     {
-        
+
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
@@ -34,29 +34,28 @@ class PageController extends Controller
         if (Page::where('slug', $slug)->exists()) {
             return response()->json(['message' => 'The URL already exists. Please choose a different title.'], 400);
         }
-        try{
+        try {
             $page = Page::create([
                 'title' => $request->title,
                 'slug' => $slug,
                 'content' => $request->content,
                 'css' => $request->css,
                 'user_id' => auth()->id(),
-            ]);    
+            ]);
         } catch (\Exception $e) {
             return response()->json(['message' => 'An error occurred while creating the page.'], 400);
         }
         return response()->json(['message' => 'Page created successfully', 'page' => $page]);
-        
     }
 
     public function show($slug)
     {
         $page = Page::where('slug', $slug)->first();
-    
+
         if (!$page) {
             return redirect()->route('dashboard')->with('error', 'Page not found.');
         }
-    
+
         return view('pages.show', compact('page'));
     }
 
@@ -84,7 +83,7 @@ class PageController extends Controller
         if (Page::where('slug', $slug)->exists() && $slug != $request->oldSlug) {
             return response()->json(['message' => 'The URL already exists. Please choose a different title.'], 400);
         }
-        try{
+        try {
             $page->update([
                 'title' => $request->title,
                 'slug' => $slug,
@@ -104,6 +103,5 @@ class PageController extends Controller
         }
         $page->delete();
         return redirect()->route('dashboard')->with('success', 'Page deleted successfully.');
-
     }
 }
