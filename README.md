@@ -11,7 +11,10 @@ WebPageBuilder is a project designed to provide a powerful and intuitive web pag
 - DataTables Integration: A user-friendly way to list and manage pages using DataTables, including search, sort, pagination, and action buttons for viewing, editing, or deleting pages
 - Page Save via AJAX: Pages are saved asynchronously using AJAX, ensuring a smooth user experience without full page reloads.
 - Laravel Backend: Provides secure routing, models, and controllers for handling page management and data persistence.
-
+## Download
+ - GIT
+  - `git clone https://github.com/shashihawanna/webPageBuilder.git`
+  
 ## Getting Started:
  1. Installation:
     - Install Laravel and configure your environment.

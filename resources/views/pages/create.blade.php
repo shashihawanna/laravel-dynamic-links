@@ -25,6 +25,11 @@
                     <div id="gjs" style="height: 500px; border: 1px solid #ccc;"></div>
                     <div class="flex items-center gap-4">
                         <x-primary-button id='save-btn'>{{ __('Save Page') }}</x-primary-button>
+                        <a href="{{ route('dashboard') }}" class="btn btn-secondary text-green-600 hover:text-green-900 ml-4">
+                            <x-secondary-button id='cancel-btn'>
+                                Cancel
+                            </x-secondary-button>
+                        </a>
                     </div>
 
                 </form>
@@ -64,8 +69,9 @@
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response) {
-                    editor.DomComponents.clear(); 
-                    editor.CssComposer.clear(); 
+                    title.val('');
+                    editor.DomComponents.clear();
+                    editor.CssComposer.clear();
                     alert('Page saved successfully! Access it at /pages/' + response.page.slug);
                 },
                 error: function(error) {

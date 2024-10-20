@@ -27,7 +27,7 @@
                     <div id="gjs" style="height: 500px; border: 1px solid #ccc;"></div>
 
                     <div class="flex items-center gap-4">
-                        <x-primary-button id='save-btn'>{{ __('Update Page') }}</x-primary-button>
+                        <x-primary-button id='update-btn'>{{ __('Update Page') }}</x-primary-button>
                         <a href="{{ route('dashboard') }}" class="btn btn-secondary text-green-600 hover:text-green-900 ml-4">
                             <x-secondary-button id='cancel-btn'>
                                 Cancel
@@ -59,7 +59,7 @@
     <script src="{{ asset('js/builder.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script type="text/javascript">
-        $('#save-btn').click(function(e) {
+        $('#update-btn').click(function(e) {
             e.preventDefault();
             const title = $('#title').val();
             const content = editor.getHtml();
@@ -72,8 +72,6 @@
                     _token: '{{ csrf_token() }}',
                 },
                 success: function(response) {
-                    editor.DomComponents.clear();
-                    editor.CssComposer.clear();
                     alert('Page updated successfully! Access it at /pages/' + response.page.slug);
                 },
                 error: function(error) {
