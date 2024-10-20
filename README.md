@@ -1,3 +1,10 @@
+## Table of contents
+
+- [About webPageBuilder](#about-webpagebuilder)
+- [Features](#features)
+- [Download](#download)
+- [Getting Started](#getting-started)
+- [Technologies Used](#technologies-used)
 
 ## About webPageBuilder
 
@@ -13,8 +20,10 @@ WebPageBuilder is a project designed to provide a powerful and intuitive web pag
 - Laravel Backend: Provides secure routing, models, and controllers for handling page management and data persistence.
 ## Download
  - GIT
-  - `git clone https://github.com/shashihawanna/webPageBuilder.git`
-  
+      ```sh
+      git clone https://github.com/shashihawanna/webPageBuilder.git
+      ```
+
 ## Getting Started:
  1. Installation:
     - Install Laravel and configure your environment.
