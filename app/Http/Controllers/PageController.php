@@ -75,7 +75,7 @@ class PageController extends Controller
             'content' => $request->content,
         ]);
 
-        return redirect()->route('pages.show', $page->slug);
+        return response()->json(['message' => 'Page updated successfully', 'page' => $page]);;
     }
 
     public function destroy(Page $page)
