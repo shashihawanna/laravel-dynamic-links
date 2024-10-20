@@ -34,14 +34,17 @@ class PageController extends Controller
         if (Page::where('slug', $slug)->exists()) {
             return response()->json(['message' => 'The URL already exists. Please choose a different title.'], 400);
         }
-        $page = Page::create([
-            'title' => $request->title,
-            'slug' => $slug,
-            'content' => $request->content,
-            'css' => $request->css,
-            'user_id' => auth()->id(),
-        ]);
-
+        try{
+            $page = Page::create([
+                'title' => $request->title,
+                'slug' => $slug,
+                'content' => $request->content,
+                'css' => $request->css,
+                'user_id' => auth()->id(),
+            ]);    
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'An error occurred while creating the page.'], 400);
+        }
         return response()->json(['message' => 'Page created successfully', 'page' => $page]);
         
     }
@@ -78,16 +81,19 @@ class PageController extends Controller
         ]);
 
         $slug = Str::slug($request->title);
-        if (Page::where('slug', $slug)->exists()) {
+        if (Page::where('slug', $slug)->exists() && $slug != $request->oldSlug) {
             return response()->json(['message' => 'The URL already exists. Please choose a different title.'], 400);
         }
-        $page->update([
-            'title' => $request->title,
-            'slug' => $slug,
-            'content' => $request->content,
-            'css' => $request->css,
-        ]);
-
+        try{
+            $page->update([
+                'title' => $request->title,
+                'slug' => $slug,
+                'content' => $request->content,
+                'css' => $request->css,
+            ]);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'An error occurred while updating the page.'], 400);
+        }
         return response()->json(['message' => 'Page updated successfully', 'page' => $page]);;
     }
 
