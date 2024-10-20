@@ -1,0 +1,46 @@
+#save-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#save-btn:hover {
+    background-color: #45a049;
+}
+
+#title {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#gjs {
+    border: 2px solid #dedede;
+    background-color: #fafafa;
+    margin-top: 20px;
+    padding: 10px;
+    min-height: 500px;
+}
+
+.gjs-toolbar {
+    color: white;
+}
+
+.gjs-block {
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.fa-undo, .fa-redo, .fa-repeat {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.fa-undo:hover, .fa-redo:hover, .fa-repeat:hover {
+  color: #4CAF50;
+}
